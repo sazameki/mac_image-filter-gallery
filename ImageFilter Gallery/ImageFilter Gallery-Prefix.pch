@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ImageFilter Gallery' target in the 'ImageFilter Gallery' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
