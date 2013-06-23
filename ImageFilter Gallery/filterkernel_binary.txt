@@ -4,8 +4,7 @@ kernel vec4 kernel_main(sampler src, float th)
     float b = 0.29891 * v.r + 0.58661 * v.g + 0.11448 * v.b;
     b = (b >= th)? 1.0: 0.0;
 
-    v.r = b;
-    v.g = b;
-    v.b = b;
+    v.rgb = vec3(b);
+
     return v;
 }

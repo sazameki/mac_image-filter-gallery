@@ -306,9 +306,9 @@ typedef enum {
     [scaleFilter setValue:image forKey:@"inputImage"];
     [scaleFilter setValue:transform forKey:@"inputTransform"];
     image = [scaleFilter valueForKey:@"outputImage"];
-
     image = [self cropImage:image];
 
+    // フィルタの適用
     for (IGFilterInfo *filterInfo in filters) {
         if (!filterInfo.enabled) {
             continue;
@@ -316,14 +316,16 @@ typedef enum {
         image = [filterInfo filteredImageForImage:image imageSize:imageSize];
     }
 
+    // CIImageはフィルタの積み重ねで表現されるので、背景と重ね合わせる前にレンダリングする
+    NSData *tiffData = [self makeTiffData];
+    image = [CIImage imageWithData:tiffData];
+
+    // 背景画像とブレンドする
     CIFilter *blendFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     [blendFilter setDefaults];
     [blendFilter setValue:image forKey:@"inputImage"];
     [blendFilter setValue:backgroundImage forKey:@"inputBackgroundImage"];
-
     image = [blendFilter valueForKey:@"outputImage"];
-
-    image = [self flipImage:image];
     ciImageProcessed = [self cropImage:image];
 
     [self updateImageView];
@@ -699,6 +701,29 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     backgroundImage = [self cropImage:backgroundImage];
 
     [self applyFilters:self];
+}
+
+- (NSData *)makeTiffData
+{
+    CIImage *image = ciImage;
+    for (IGFilterInfo *filterInfo in filters) {
+        if (!filterInfo.enabled) {
+            continue;
+        }
+        image = [filterInfo filteredImageForImage:image imageSize:imageSize];
+    }
+    image = [self flipImage:image];
+
+    CIContext *ciContext = [CIContext contextWithCGContext:(CGContextRef)[[NSGraphicsContext currentContext] graphicsPort]
+                                                   options:nil];
+    CGImageRef cgImage = [ciContext createCGImage:image fromRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    NSImage *nsImage = [[NSImage alloc] initWithCGImage:cgImage size:imageSize];
+
+    NSData *tiffData = nsImage.TIFFRepresentation;
+
+    CGImageRelease(cgImage);
+
+    return tiffData;
 }
 
 - (NSData *)makePNGData
