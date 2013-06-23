@@ -19,6 +19,8 @@
 #import "IGSplitFilter.h"
 #import "IGMosaicFilter.h"
 #import "IGHueControlFilter.h"
+#import "IGSatControlFilter.h"
+#import "IGValueControlFilter.h"
 #import "IGFlipHFilter.h"
 #import "IGFlipVFilter.h"
 
@@ -37,6 +39,7 @@ typedef enum {
     CIImage *ciImage;
     CIImage *ciImageProcessed;
     NSSize  imageSize;
+    NSSize  scaledImageSize;
 
     NSMutableArray *filters;
 
@@ -47,6 +50,8 @@ typedef enum {
 
     IGBackgroundType backgroundType;
     CIImage *backgroundImage;
+
+    float   scale;
 
     // Camera Support
     BOOL hasSetImageSize;
@@ -67,6 +72,8 @@ typedef enum {
     [IGSplitFilter registerFilter];
     [IGMosaicFilter registerFilter];
     [IGHueControlFilter registerFilter];
+    [IGSatControlFilter registerFilter];
+    [IGValueControlFilter registerFilter];
     [IGFlipHFilter registerFilter];
     [IGFlipVFilter registerFilter];
 }
@@ -129,6 +136,8 @@ typedef enum {
 {
     [super windowControllerDidLoadNib:aController];
 
+    scale = 1.0f;
+
     if (self.isCameraDocument) {
         hasSetImageSize = NO;
 
@@ -148,6 +157,7 @@ typedef enum {
         [captureSession addOutput:dataOutput];
 
         imageSize = NSMakeSize(640, 480);
+        scaledImageSize = imageSize;
 
         [captureSession startRunning];
 
@@ -177,6 +187,7 @@ typedef enum {
     CALayer *layer = documentView.layer;
     layer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
     layer.backgroundColor = [NSColor whiteColor].CGColor;
+    layer.contentsGravity = kCAGravityBottomLeft;
 
     self.filtersPanel.level = NSFloatingWindowLevel;
 
@@ -203,10 +214,10 @@ typedef enum {
 {
     CIContext *ciContext = [CIContext contextWithCGContext:(CGContextRef)[[NSGraphicsContext currentContext] graphicsPort]
                                                    options:nil];
-    CGImageRef cgImage = [ciContext createCGImage:ciImageProcessed fromRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    CGImageRef cgImage = [ciContext createCGImage:ciImageProcessed fromRect:CGRectMake(0, 0, scaledImageSize.width, scaledImageSize.height)];
 
     CALayer *layer = self.mainView.layer;
-    layer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    layer.frame = CGRectMake(0, 0, scaledImageSize.width, scaledImageSize.height);
     layer.contents = (__bridge id)cgImage;
 
     CGImageRelease(cgImage);
@@ -240,7 +251,7 @@ typedef enum {
         [cropFilter setDefaults];
     }
     [cropFilter setValue:image forKey:@"inputImage"];
-    [cropFilter setValue:[CIVector vectorWithX:0 Y:0 Z:imageSize.width W:imageSize.height]
+    [cropFilter setValue:[CIVector vectorWithX:0 Y:0 Z:scaledImageSize.width W:scaledImageSize.height]
                   forKey:@"inputRectangle"];
     image = [cropFilter valueForKey:@"outputImage"];
 
@@ -251,6 +262,7 @@ typedef enum {
 {
     NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:data];
     imageSize = NSMakeSize(imageRep.pixelsWide, imageRep.pixelsHigh);
+    scaledImageSize = imageSize;
     ciImage = [CIImage imageWithCGImage:imageRep.CGImage];
 
     ciImage = [self flipImage:ciImage];
@@ -283,6 +295,18 @@ typedef enum {
 - (IBAction)applyFilters:(id)sender
 {
     CIImage *image = ciImage;
+
+    NSAffineTransform *transform = [NSAffineTransform transform];
+    [transform scaleBy:scale];
+
+    CIFilter *scaleFilter = [CIFilter filterWithName:@"CIAffineTransform"];
+    [scaleFilter setDefaults];
+    [scaleFilter setValue:image forKey:@"inputImage"];
+    [scaleFilter setValue:transform forKey:@"inputTransform"];
+    image = [scaleFilter valueForKey:@"outputImage"];
+
+    image = [self cropImage:image];
+
     for (IGFilterInfo *filterInfo in filters) {
         if (!filterInfo.enabled) {
             continue;
@@ -628,7 +652,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
         menuItem.state = (backgroundType == IGBackgroundTypeWhite)? NSOnState: NSOffState;
         return YES;
     }
-    return NO;
+    return [super validateMenuItem:menuItem];
 }
 
 - (IBAction)setBackgroundCheckerboard:(id)sender
@@ -791,6 +815,55 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     // イメージバッファのアンロック
     CVPixelBufferUnlockBaseAddress(buffer, 0);
+}
+
+- (void)setScale:(float)value
+{
+    scale = value;
+
+    scaledImageSize.width = (int)(imageSize.width * scale);
+    scaledImageSize.height = (int)(imageSize.height * scale);
+
+    NSWindow *window = self.mainView.window;
+    float left = window.frame.origin.x;
+    float top = window.frame.origin.y + window.frame.size.height;
+
+    NSRect imageRect = NSMakeRect(0, 0, scaledImageSize.width, scaledImageSize.height);
+
+    NSRect windowFrame = [window frameRectForContentRect:imageRect];
+    windowFrame.origin.x = left;
+    windowFrame.origin.y = top - windowFrame.size.height;
+    [window setFrame:windowFrame display:YES animate:YES];
+
+    [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateAfterScaling:) userInfo:nil repeats:NO];
+}
+
+- (void)updateAfterScaling:(NSTimer *)timer
+{
+    NSView *documentView = self.mainView;
+    NSWindow *window = self.mainView.window;
+
+    NSRect imageRect = NSMakeRect(0, 0, scaledImageSize.width, scaledImageSize.height);
+
+    documentView.frame = imageRect;
+    CALayer *layer = documentView.layer;
+    layer.frame = CGRectMake(0, 0, scaledImageSize.width, scaledImageSize.height);
+    window.contentSize = scaledImageSize;
+    window.contentMaxSize = scaledImageSize;
+
+    [self applyFilters:self];
+}
+
+- (IBAction)setScaleOriginal:(id)sender
+{
+    // TODO: スケール変更の実装
+    //[self setScale:1.0];
+}
+
+- (IBAction)setScale50p:(id)sender
+{
+    // TODO: スケール変更の実装
+    //[self setScale:0.9];
 }
 
 @end

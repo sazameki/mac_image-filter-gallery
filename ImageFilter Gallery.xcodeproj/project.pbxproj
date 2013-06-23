@@ -44,6 +44,10 @@
 		8E2001001776D16700C11017 /* IGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000FF1776D16600C11017 /* IGAppDelegate.m */; };
 		8EDA9B471776D59200063F05 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDA9B461776D59200063F05 /* AVFoundation.framework */; };
 		8EDA9B491776D77E00063F05 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDA9B481776D77E00063F05 /* CoreMedia.framework */; };
+		8EDA9B4B177777EB00063F05 /* filterkernel_satcontrol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B4A177777EB00063F05 /* filterkernel_satcontrol.txt */; };
+		8EDA9B4E1777786A00063F05 /* IGSatControlFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B4D1777786A00063F05 /* IGSatControlFilter.m */; };
+		8EDA9B511777795900063F05 /* IGValueControlFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B501777795900063F05 /* IGValueControlFilter.m */; };
+		8EDA9B531777798D00063F05 /* filterkernel_valuecontrol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B521777798D00063F05 /* filterkernel_valuecontrol.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +113,12 @@
 		8E2000FF1776D16600C11017 /* IGAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGAppDelegate.m; sourceTree = "<group>"; };
 		8EDA9B461776D59200063F05 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8EDA9B481776D77E00063F05 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8EDA9B4A177777EB00063F05 /* filterkernel_satcontrol.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_satcontrol.txt; sourceTree = "<group>"; };
+		8EDA9B4C1777786A00063F05 /* IGSatControlFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGSatControlFilter.h; sourceTree = "<group>"; };
+		8EDA9B4D1777786A00063F05 /* IGSatControlFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGSatControlFilter.m; sourceTree = "<group>"; };
+		8EDA9B4F1777795900063F05 /* IGValueControlFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGValueControlFilter.h; sourceTree = "<group>"; };
+		8EDA9B501777795900063F05 /* IGValueControlFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGValueControlFilter.m; sourceTree = "<group>"; };
+		8EDA9B521777798D00063F05 /* filterkernel_valuecontrol.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_valuecontrol.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +236,10 @@
 				8E2000D817766CFB00C11017 /* IGMosaicFilter.m */,
 				8E2000DF1776765200C11017 /* IGHueControlFilter.h */,
 				8E2000E01776765200C11017 /* IGHueControlFilter.m */,
+				8EDA9B4C1777786A00063F05 /* IGSatControlFilter.h */,
+				8EDA9B4D1777786A00063F05 /* IGSatControlFilter.m */,
+				8EDA9B4F1777795900063F05 /* IGValueControlFilter.h */,
+				8EDA9B501777795900063F05 /* IGValueControlFilter.m */,
 				8E2000E417767CF400C11017 /* IGYUVControlFilter.h */,
 				8E2000E517767CF400C11017 /* IGYUVControlFilter.m */,
 				8E2000E9177681DA00C11017 /* IGFlipHFilter.h */,
@@ -246,6 +260,8 @@
 				8E2000D0177666F300C11017 /* filterkernel_split.txt */,
 				8E2000D517766CD600C11017 /* filterkernel_mosaic.txt */,
 				8E2000DD1776761300C11017 /* filterkernel_huecontrol.txt */,
+				8EDA9B4A177777EB00063F05 /* filterkernel_satcontrol.txt */,
+				8EDA9B521777798D00063F05 /* filterkernel_valuecontrol.txt */,
 				8E2000E217767CC800C11017 /* filterkernel_yuvcontrol.txt */,
 				8E2000E71776817E00C11017 /* filterkernel_flip_h.txt */,
 				8E2000EC177682AF00C11017 /* filterkernel_flip_v.txt */,
@@ -331,6 +347,8 @@
 				8E2000E317767CC800C11017 /* filterkernel_yuvcontrol.txt in Resources */,
 				8E2000E81776817E00C11017 /* filterkernel_flip_h.txt in Resources */,
 				8E2000ED177682AF00C11017 /* filterkernel_flip_v.txt in Resources */,
+				8EDA9B4B177777EB00063F05 /* filterkernel_satcontrol.txt in Resources */,
+				8EDA9B531777798D00063F05 /* filterkernel_valuecontrol.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +379,8 @@
 				8E2000F91776A45400C11017 /* IGTableView.m in Sources */,
 				8E2000FD1776AE6100C11017 /* IGView.m in Sources */,
 				8E2001001776D16700C11017 /* IGAppDelegate.m in Sources */,
+				8EDA9B4E1777786A00063F05 /* IGSatControlFilter.m in Sources */,
+				8EDA9B511777795900063F05 /* IGValueControlFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

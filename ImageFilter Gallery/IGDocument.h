@@ -61,6 +61,9 @@
 - (IBAction)setBackgroundBlack:(id)sender;
 - (IBAction)setBackgroundWhite:(id)sender;
 
+- (IBAction)setScaleOriginal:(id)sender;
+- (IBAction)setScale50p:(id)sender;
+
 - (void)setCenterPos:(NSPoint)pos;
 
 @end

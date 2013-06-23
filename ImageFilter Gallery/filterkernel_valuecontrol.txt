@@ -1,0 +1,72 @@
+const float M_PI = 3.14159265358979323846;
+
+vec3 rgb2hsv(vec3 rgb)
+{
+    float max = max(rgb.r, max(rgb.g, rgb.b));
+    float min = min(rgb.r, min(rgb.g, rgb.b));
+
+    float sat = (max - min) / max;
+    float value = max;
+
+    int type = (max == rgb.r)? 0: (max == rgb.g)? 1: 2;
+    float hue =
+    (type == 0)? ((M_PI/3.0) * (rgb.g - rgb.b) / (max - min)):
+    (type == 1)? ((M_PI/3.0) * (rgb.b - rgb.r) / (max - min) + (M_PI*2.0/3.0)):
+    ((M_PI/3.0) * (rgb.r - rgb.g) / (max - min) + (M_PI*4.0/3.0));
+
+    return vec3(hue, sat, value);
+}
+
+vec3 hsv2rgb(vec3 hsv)
+{
+    float hue = hsv.x;
+    float sat = hsv.y;
+    float value = hsv.z;
+
+    int i = int(hue / (M_PI/3.0));
+    float f = hue / (M_PI/3.0) - float(i);
+    float m = value * (1.0 - sat);
+    float n = value * (1.0 - sat * f);
+    float k = value * (1.0 - sat * (1.0 - f));
+
+    float red =
+    (i == 0)? value:
+    (i == 1)? n:
+    (i == 2)? m:
+    (i == 3)? m:
+    (i == 4)? k:
+    value;
+
+    float green =
+    (i == 0)? k:
+    (i == 1)? value:
+    (i == 2)? value:
+    (i == 3)? n:
+    (i == 4)? m:
+    m;
+
+    float blue =
+    (i == 0)? m:
+    (i == 1)? m:
+    (i == 2)? k:
+    (i == 3)? value:
+    (i == 4)? value:
+    n;
+
+    red = clamp(red, 0.0, 1.0);
+    green = clamp(green, 0.0, 1.0);
+    blue = clamp(blue, 0.0, 1.0);
+
+    return vec3(red, green, blue);
+}
+
+kernel vec4 kernel_main(sampler src, float fixedValue)
+{
+    vec4 v = sample(src, samplerCoord(src));
+
+    vec3 hsv = rgb2hsv(v.rgb);
+    hsv.z = fixedValue;
+    v.rgb = hsv2rgb(hsv);
+    
+    return v;
+}
