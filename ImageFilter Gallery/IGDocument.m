@@ -607,6 +607,8 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     IGFilterInfo *currentFilterInfo = filters[filters.count-row-1];
     if ([currentFilterInfo setCenterPos:pos]) {
         [self applyFilters:self];
+
+        [self tableViewSelectionDidChange:nil];
     }
 }
 
