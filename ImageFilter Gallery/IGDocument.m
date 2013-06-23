@@ -296,29 +296,8 @@ typedef enum {
 
 - (IBAction)applyFilters:(id)sender
 {
-    CIImage *image = ciImage;
-
-    NSAffineTransform *transform = [NSAffineTransform transform];
-    [transform scaleBy:scale];
-
-    CIFilter *scaleFilter = [CIFilter filterWithName:@"CIAffineTransform"];
-    [scaleFilter setDefaults];
-    [scaleFilter setValue:image forKey:@"inputImage"];
-    [scaleFilter setValue:transform forKey:@"inputTransform"];
-    image = [scaleFilter valueForKey:@"outputImage"];
-    image = [self cropImage:image];
-
-    // フィルタの適用
-    for (IGFilterInfo *filterInfo in filters) {
-        if (!filterInfo.enabled) {
-            continue;
-        }
-        image = [filterInfo filteredImageForImage:image imageSize:imageSize];
-    }
-
-    // CIImageはフィルタの積み重ねで表現されるので、背景と重ね合わせる前にレンダリングする
-    NSData *tiffData = [self makeTiffData];
-    image = [CIImage imageWithData:tiffData];
+    // フィルタを適用した画像の用意。CIImageはフィルタの積み重ねで表現されるので、背景と重ね合わせる前にレンダリングする。
+    CIImage *image = [self makeFilteredImage];
 
     // 背景画像とブレンドする
     CIFilter *blendFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
@@ -326,6 +305,8 @@ typedef enum {
     [blendFilter setValue:image forKey:@"inputImage"];
     [blendFilter setValue:backgroundImage forKey:@"inputBackgroundImage"];
     image = [blendFilter valueForKey:@"outputImage"];
+
+    image = [self flipImage:image];
     ciImageProcessed = [self cropImage:image];
 
     [self updateImageView];
@@ -703,6 +684,13 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     [self applyFilters:self];
 }
 
+- (CIImage *)makeFilteredImage
+{
+    NSData *tiffData = [self makeTiffData];
+    CIImage *ret = [CIImage imageWithData:tiffData];
+    return ret;
+}
+
 - (NSData *)makeTiffData
 {
     CIImage *image = ciImage;
@@ -712,7 +700,6 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
         }
         image = [filterInfo filteredImageForImage:image imageSize:imageSize];
     }
-    image = [self flipImage:image];
 
     CIContext *ciContext = [CIContext contextWithCGContext:(CGContextRef)[[NSGraphicsContext currentContext] graphicsPort]
                                                    options:nil];
