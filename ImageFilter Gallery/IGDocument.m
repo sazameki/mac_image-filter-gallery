@@ -177,15 +177,15 @@ typedef enum {
     [documentView setWantsLayer:YES];
     [SZMKFlippedClipView setupClipView:self.scrollView.contentView];
 
-    NSRect imageRect = NSMakeRect(0, 0, imageSize.width, imageSize.height);
+    NSRect imageRect = NSMakeRect(0, 0, scaledImageSize.width, scaledImageSize.height);
 
     documentView.frame = imageRect;
-    documentView.window.contentSize = imageSize;
-    documentView.window.contentMaxSize = imageSize;
+    documentView.window.contentSize = scaledImageSize;
+    documentView.window.contentMaxSize = scaledImageSize;
     [documentView.window setFrame:[documentView.window frameRectForContentRect:imageRect] display:NO];
 
     CALayer *layer = documentView.layer;
-    layer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    layer.frame = CGRectMake(0, 0, scaledImageSize.width, scaledImageSize.height);
     layer.backgroundColor = [NSColor whiteColor].CGColor;
     layer.contentsGravity = kCAGravityBottomLeft;
 
@@ -775,6 +775,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
     if (!hasSetImageSize) {
         imageSize = NSMakeSize(width, height);
+        scaledImageSize = NSMakeSize(width * scale, height * scale);
 
         if (backgroundType == IGBackgroundTypeCheckerboard) {
             [self setBackgroundCheckerboard:self];
