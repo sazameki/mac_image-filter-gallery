@@ -11,6 +11,7 @@
 
 @interface IGAppDelegate : NSObject
 
+- (IBAction)newFromClipboard:(id)sender;
 - (IBAction)newCameraImage:(id)sender;
 
 @end

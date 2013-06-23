@@ -15,6 +15,31 @@ BOOL gHasCameraImage = NO;
 
 @implementation IGAppDelegate
 
+- (IBAction)newFromClipboard:(id)sender
+{
+    NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+    NSData *imageData = [pboard dataForType:NSPasteboardTypePNG];
+    if (!imageData) {
+        imageData = [pboard dataForType:NSPasteboardTypeTIFF];
+    }
+    if (!imageData) {
+        NSBeep();
+        return;
+    }
+
+    NSDocumentController* docController = [NSDocumentController sharedDocumentController];
+    NSError *error = nil;
+    IGDocument *document = [docController makeUntitledDocumentOfType:@"PNG Image" error:&error];
+    if (![document readFromData:imageData ofType:nil error:&error]) {
+        NSBeep();
+        NSLog(@"Failed to read an image data from clipboard.");
+        return;
+    }
+    [docController addDocument:document];
+    [document makeWindowControllers];
+    [document showWindows];
+}
+
 - (IBAction)newCameraImage:(id)sender
 {
     if (gHasCameraImage) {
