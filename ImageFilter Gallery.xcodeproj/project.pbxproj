@@ -50,6 +50,8 @@
 		8EDA9B531777798D00063F05 /* filterkernel_valuecontrol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B521777798D00063F05 /* filterkernel_valuecontrol.txt */; };
 		8EDA9B55177782E900063F05 /* filterkernel_white2transparent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B54177782E900063F05 /* filterkernel_white2transparent.txt */; };
 		8EDA9B58177782FE00063F05 /* IGWhite2TransparentFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B57177782FE00063F05 /* IGWhite2TransparentFilter.m */; };
+		8EDA9B5A1777970700063F05 /* filterkernel_white2transparent2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B591777970600063F05 /* filterkernel_white2transparent2.txt */; };
+		8EDA9B5D1777976000063F05 /* IGWhite2TransparentFilter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B5C1777976000063F05 /* IGWhite2TransparentFilter2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,9 @@
 		8EDA9B54177782E900063F05 /* filterkernel_white2transparent.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_white2transparent.txt; sourceTree = "<group>"; };
 		8EDA9B56177782FE00063F05 /* IGWhite2TransparentFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGWhite2TransparentFilter.h; sourceTree = "<group>"; };
 		8EDA9B57177782FE00063F05 /* IGWhite2TransparentFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGWhite2TransparentFilter.m; sourceTree = "<group>"; };
+		8EDA9B591777970600063F05 /* filterkernel_white2transparent2.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_white2transparent2.txt; sourceTree = "<group>"; };
+		8EDA9B5B1777976000063F05 /* IGWhite2TransparentFilter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGWhite2TransparentFilter2.h; sourceTree = "<group>"; };
+		8EDA9B5C1777976000063F05 /* IGWhite2TransparentFilter2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGWhite2TransparentFilter2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +258,8 @@
 				8E2000EF177682D600C11017 /* IGFlipVFilter.m */,
 				8EDA9B56177782FE00063F05 /* IGWhite2TransparentFilter.h */,
 				8EDA9B57177782FE00063F05 /* IGWhite2TransparentFilter.m */,
+				8EDA9B5B1777976000063F05 /* IGWhite2TransparentFilter2.h */,
+				8EDA9B5C1777976000063F05 /* IGWhite2TransparentFilter2.m */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -273,6 +280,7 @@
 				8E2000E71776817E00C11017 /* filterkernel_flip_h.txt */,
 				8E2000EC177682AF00C11017 /* filterkernel_flip_v.txt */,
 				8EDA9B54177782E900063F05 /* filterkernel_white2transparent.txt */,
+				8EDA9B591777970600063F05 /* filterkernel_white2transparent2.txt */,
 			);
 			name = "kernel sources";
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				8EDA9B4B177777EB00063F05 /* filterkernel_satcontrol.txt in Resources */,
 				8EDA9B531777798D00063F05 /* filterkernel_valuecontrol.txt in Resources */,
 				8EDA9B55177782E900063F05 /* filterkernel_white2transparent.txt in Resources */,
+				8EDA9B5A1777970700063F05 /* filterkernel_white2transparent2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +400,7 @@
 				8EDA9B4E1777786A00063F05 /* IGSatControlFilter.m in Sources */,
 				8EDA9B511777795900063F05 /* IGValueControlFilter.m in Sources */,
 				8EDA9B58177782FE00063F05 /* IGWhite2TransparentFilter.m in Sources */,
+				8EDA9B5D1777976000063F05 /* IGWhite2TransparentFilter2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

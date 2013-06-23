@@ -24,6 +24,7 @@
 #import "IGFlipHFilter.h"
 #import "IGFlipVFilter.h"
 #import "IGWhite2TransparentFilter.h"
+#import "IGWhite2TransparentFilter2.h"
 
 #import "NSMutableArray+Util.h"
 #import "NSWindow+AccessoryView.h"
@@ -78,6 +79,7 @@ typedef enum {
     [IGFlipHFilter registerFilter];
     [IGFlipVFilter registerFilter];
     [IGWhite2TransparentFilter registerFilter];
+    [IGWhite2TransparentFilter2 registerFilter];
 }
 
 - (id)init
