@@ -118,6 +118,7 @@
 									<string key="NSFrame">{{0, 398}, {492, 15}}</string>
 									<reference key="NSSuperview" ref="183157779"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:30</string>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
@@ -346,7 +347,7 @@
 									<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 									<reference key="NSSuperview" ref="1035560065"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="679893262"/>
+									<reference key="NSNextKeyView" ref="748996538"/>
 									<string key="NSReuseIdentifierKey">_NS:58</string>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="1035560065"/>
@@ -360,7 +361,7 @@
 									<string key="NSFrame">{{-100, -100}, {481, 16}}</string>
 									<reference key="NSSuperview" ref="1035560065"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="748996538"/>
+									<reference key="NSNextKeyView" ref="360221017"/>
 									<string key="NSReuseIdentifierKey">_NS:60</string>
 									<bool key="NSEnabled">YES</bool>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -388,7 +389,7 @@
 							<string key="NSFrame">{{-1, 117}, {483, 198}}</string>
 							<reference key="NSSuperview" ref="994214631"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="360221017"/>
+							<reference key="NSNextKeyView" ref="679893262"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133778</int>
 							<reference key="NSVScroller" ref="797157862"/>
@@ -524,7 +525,7 @@
 											<int key="NSTag">402</int>
 											<reference key="NSTarget" ref="659096607"/>
 										</object>
-										<object class="NSMenuItem" id="77313341">
+										<object class="NSMenuItem" id="907130789">
 											<reference key="NSMenu" ref="661761077"/>
 											<string key="NSTitle">彩度の統一</string>
 											<string key="NSKeyEquiv"/>
@@ -535,7 +536,7 @@
 											<int key="NSTag">700</int>
 											<reference key="NSTarget" ref="659096607"/>
 										</object>
-										<object class="NSMenuItem" id="808011317">
+										<object class="NSMenuItem" id="417553379">
 											<reference key="NSMenu" ref="661761077"/>
 											<string key="NSTitle">明度の統一</string>
 											<string key="NSKeyEquiv"/>
@@ -544,6 +545,17 @@
 											<reference key="NSMixedImage" ref="805109130"/>
 											<string key="NSAction">_popUpItemAction:</string>
 											<int key="NSTag">701</int>
+											<reference key="NSTarget" ref="659096607"/>
+										</object>
+										<object class="NSMenuItem" id="1053626368">
+											<reference key="NSMenu" ref="661761077"/>
+											<string key="NSTitle">白を透明に</string>
+											<string key="NSKeyEquiv"/>
+											<int key="NSMnemonicLoc">2147483647</int>
+											<reference key="NSOnImage" ref="343414530"/>
+											<reference key="NSMixedImage" ref="805109130"/>
+											<string key="NSAction">_popUpItemAction:</string>
+											<int key="NSTag">702</int>
 											<reference key="NSTarget" ref="659096607"/>
 										</object>
 										<object class="NSMenuItem" id="1035212892">
@@ -1278,6 +1290,7 @@
 							<string key="NSFrame">{{408, 9}, {63, 19}}</string>
 							<reference key="NSSuperview" ref="994214631"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="753044604">
@@ -1349,6 +1362,7 @@
 				<string key="NSFrameSize">{78, 19}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<bool key="NSEnabled">YES</bool>
 				<object class="NSButtonCell" key="NSCell" id="728711533">
@@ -1672,7 +1686,7 @@
 						<int key="objectID">6</int>
 						<reference key="object" ref="568628114"/>
 						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="600162314">
+							<object class="IBNSLayoutConstraint" id="962230780">
 								<reference key="firstItem" ref="183157779"/>
 								<int key="firstAttribute">4</int>
 								<int key="relation">0</int>
@@ -1688,7 +1702,7 @@
 								<float key="scoringTypeFloat">29</float>
 								<int key="contentType">3</int>
 							</object>
-							<object class="IBNSLayoutConstraint" id="274096284">
+							<object class="IBNSLayoutConstraint" id="516057810">
 								<reference key="firstItem" ref="183157779"/>
 								<int key="firstAttribute">6</int>
 								<int key="relation">0</int>
@@ -2535,8 +2549,9 @@
 							<reference ref="990305087"/>
 							<reference ref="932728592"/>
 							<reference ref="62027674"/>
-							<reference ref="77313341"/>
-							<reference ref="808011317"/>
+							<reference ref="907130789"/>
+							<reference ref="417553379"/>
+							<reference ref="1053626368"/>
 						</array>
 						<reference key="parent" ref="659096607"/>
 					</object>
@@ -3389,22 +3404,27 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100478</int>
-						<reference key="object" ref="274096284"/>
+						<reference key="object" ref="516057810"/>
 						<reference key="parent" ref="568628114"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100479</int>
-						<reference key="object" ref="600162314"/>
+						<reference key="object" ref="962230780"/>
 						<reference key="parent" ref="568628114"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100485</int>
-						<reference key="object" ref="77313341"/>
+						<reference key="object" ref="907130789"/>
 						<reference key="parent" ref="661761077"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100486</int>
-						<reference key="object" ref="808011317"/>
+						<reference key="object" ref="417553379"/>
+						<reference key="parent" ref="661761077"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100487</int>
+						<reference key="object" ref="1053626368"/>
 						<reference key="parent" ref="661761077"/>
 					</object>
 				</array>
@@ -3661,13 +3681,14 @@
 				<string key="100479.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100485.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100486.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="100487.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBWindowTemplateEditedContentRect">{{133, 170}, {507, 413}}</string>
 				<array key="6.IBNSViewMetadataConstraints">
 					<reference ref="601713668"/>
 					<reference ref="179222887"/>
-					<reference ref="274096284"/>
-					<reference ref="600162314"/>
+					<reference ref="516057810"/>
+					<reference ref="962230780"/>
 				</array>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
@@ -3675,7 +3696,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100486</int>
+			<int key="maxID">100487</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3897,11 +3918,8 @@
 						<string key="browseDocumentVersions:">id</string>
 						<string key="duplicateDocument:">id</string>
 						<string key="lockDocument:">id</string>
-						<string key="moveDocument:">id</string>
 						<string key="moveDocumentToUbiquityContainer:">id</string>
 						<string key="printDocument:">id</string>
-						<string key="renameDocument:">id</string>
-						<string key="revertDocumentToSaved:">id</string>
 						<string key="runPageLayout:">id</string>
 						<string key="saveDocument:">id</string>
 						<string key="saveDocumentAs:">id</string>
@@ -3921,24 +3939,12 @@
 							<string key="name">lockDocument:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="moveDocument:">
-							<string key="name">moveDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="moveDocumentToUbiquityContainer:">
 							<string key="name">moveDocumentToUbiquityContainer:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="printDocument:">
 							<string key="name">printDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="renameDocument:">
-							<string key="name">renameDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="revertDocumentToSaved:">
-							<string key="name">revertDocumentToSaved:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="runPageLayout:">

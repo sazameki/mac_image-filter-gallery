@@ -48,6 +48,8 @@
 		8EDA9B4E1777786A00063F05 /* IGSatControlFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B4D1777786A00063F05 /* IGSatControlFilter.m */; };
 		8EDA9B511777795900063F05 /* IGValueControlFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B501777795900063F05 /* IGValueControlFilter.m */; };
 		8EDA9B531777798D00063F05 /* filterkernel_valuecontrol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B521777798D00063F05 /* filterkernel_valuecontrol.txt */; };
+		8EDA9B55177782E900063F05 /* filterkernel_white2transparent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA9B54177782E900063F05 /* filterkernel_white2transparent.txt */; };
+		8EDA9B58177782FE00063F05 /* IGWhite2TransparentFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA9B57177782FE00063F05 /* IGWhite2TransparentFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,9 @@
 		8EDA9B4F1777795900063F05 /* IGValueControlFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGValueControlFilter.h; sourceTree = "<group>"; };
 		8EDA9B501777795900063F05 /* IGValueControlFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGValueControlFilter.m; sourceTree = "<group>"; };
 		8EDA9B521777798D00063F05 /* filterkernel_valuecontrol.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_valuecontrol.txt; sourceTree = "<group>"; };
+		8EDA9B54177782E900063F05 /* filterkernel_white2transparent.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_white2transparent.txt; sourceTree = "<group>"; };
+		8EDA9B56177782FE00063F05 /* IGWhite2TransparentFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGWhite2TransparentFilter.h; sourceTree = "<group>"; };
+		8EDA9B57177782FE00063F05 /* IGWhite2TransparentFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGWhite2TransparentFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +251,8 @@
 				8E2000EA177681DA00C11017 /* IGFlipHFilter.m */,
 				8E2000EE177682D500C11017 /* IGFlipVFilter.h */,
 				8E2000EF177682D600C11017 /* IGFlipVFilter.m */,
+				8EDA9B56177782FE00063F05 /* IGWhite2TransparentFilter.h */,
+				8EDA9B57177782FE00063F05 /* IGWhite2TransparentFilter.m */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -265,6 +272,7 @@
 				8E2000E217767CC800C11017 /* filterkernel_yuvcontrol.txt */,
 				8E2000E71776817E00C11017 /* filterkernel_flip_h.txt */,
 				8E2000EC177682AF00C11017 /* filterkernel_flip_v.txt */,
+				8EDA9B54177782E900063F05 /* filterkernel_white2transparent.txt */,
 			);
 			name = "kernel sources";
 			sourceTree = "<group>";
@@ -349,6 +357,7 @@
 				8E2000ED177682AF00C11017 /* filterkernel_flip_v.txt in Resources */,
 				8EDA9B4B177777EB00063F05 /* filterkernel_satcontrol.txt in Resources */,
 				8EDA9B531777798D00063F05 /* filterkernel_valuecontrol.txt in Resources */,
+				8EDA9B55177782E900063F05 /* filterkernel_white2transparent.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +390,7 @@
 				8E2001001776D16700C11017 /* IGAppDelegate.m in Sources */,
 				8EDA9B4E1777786A00063F05 /* IGSatControlFilter.m in Sources */,
 				8EDA9B511777795900063F05 /* IGValueControlFilter.m in Sources */,
+				8EDA9B58177782FE00063F05 /* IGWhite2TransparentFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
