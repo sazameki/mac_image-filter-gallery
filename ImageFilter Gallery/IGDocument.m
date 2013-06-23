@@ -612,7 +612,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     }
 }
 
-- (void)writeImageAtURL:(NSURL *)url
+- (NSData *)makePNGData
 {
     CIImage *image = ciImage;
     for (IGFilterInfo *filterInfo in filters) {
@@ -631,11 +631,19 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:nsImage.TIFFRepresentation];
     NSData *pngData = [imageRep representationUsingType:NSPNGFileType
                                              properties:@{ NSImageInterlaced:@NO }];
+
+    CGImageRelease(cgImage);
+
+    return pngData;
+}
+
+- (void)writeImageAtURL:(NSURL *)url
+{
+    NSData *pngData = [self makePNGData];
+
     if (![pngData writeToURL:url atomically:YES]) {
         NSLog(@"Failed to write PNG file: %@", url);
     }
-
-    CGImageRelease(cgImage);
 }
 
 - (IBAction)saveAs:(id)sender
@@ -651,6 +659,15 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
             [self writeImageAtURL:fileURL];
         }
     }];
+}
+
+- (IBAction)copy:(id)sender
+{
+    NSData *pngData = [self makePNGData];
+
+    NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+    [pboard declareTypes:@[ NSPasteboardTypePNG ] owner:self];
+    [pboard setData:pngData forType:NSPasteboardTypePNG];
 }
 
 - (void)captureOutput:(AVCaptureOutput*)captureOutput
