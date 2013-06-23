@@ -94,7 +94,7 @@ NSArray *filterInfos;
            },
         @{ @"tag":@701, @"display":@"明度の統一",
            @"filter":@"IGValueControlFilter", @"name":@"inputValue", @"param-display":@"明度",
-           @"min":@0.0f, @"max":@1.0f, @"default":@0.5f,
+           @"min":@0.0f, @"max":@1.0f, @"default":@1.0f,
            },
         @{ @"tag":@403, @"display":@"YUVコントロール",
            @"filter":@"IGYUVControlFilter", @"name":@"inputU", @"param-display":@"U",
