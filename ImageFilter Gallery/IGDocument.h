@@ -57,6 +57,10 @@
 
 - (IBAction)saveAs:(id)sender;
 
+- (IBAction)setBackgroundCheckerboard:(id)sender;
+- (IBAction)setBackgroundBlack:(id)sender;
+- (IBAction)setBackgroundWhite:(id)sender;
+
 - (void)setCenterPos:(NSPoint)pos;
 
 @end

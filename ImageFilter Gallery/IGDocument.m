@@ -26,6 +26,13 @@
 #import "NSWindow+AccessoryView.h"
 
 
+typedef enum {
+    IGBackgroundTypeCheckerboard,
+    IGBackgroundTypeBlack,
+    IGBackgroundTypeWhite,
+} IGBackgroundType;
+
+
 @implementation IGDocument {
     CIImage *ciImage;
     CIImage *ciImageProcessed;
@@ -37,6 +44,9 @@
 
     CIFilter *flipFilter;
     CIFilter *cropFilter;
+
+    IGBackgroundType backgroundType;
+    CIImage *backgroundImage;
 
     // Camera Support
     BOOL hasSetImageSize;
@@ -170,7 +180,8 @@
 
     self.filtersPanel.level = NSFloatingWindowLevel;
 
-    [self updateImageView];
+    backgroundType = IGBackgroundTypeCheckerboard;
+    [self setBackgroundCheckerboard:self];
 
     [self.filtersTableView registerForDraggedTypes:@[NSStringPboardType]];
 
@@ -279,19 +290,10 @@
         image = [filterInfo filteredImageForImage:image imageSize:imageSize];
     }
 
-    CIFilter *checkerboardFilter = [CIFilter filterWithName:@"CICheckerboardGenerator"];
-    [checkerboardFilter setDefaults];
-    [checkerboardFilter setValue:@8 forKey:@"inputWidth"];
-    [checkerboardFilter setValue:[CIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0] forKey:@"inputColor0"];
-    [checkerboardFilter setValue:[CIColor colorWithRed:0.8 green:0.8 blue:0.8] forKey:@"inputColor1"];
-    [checkerboardFilter setValue:[CIVector vectorWithX:0 Y:0] forKey:@"inputCenter"];
-    CIImage *checkerImage = [checkerboardFilter valueForKey:@"outputImage"];
-    checkerImage = [self cropImage:checkerImage];
-
     CIFilter *blendFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     [blendFilter setDefaults];
     [blendFilter setValue:image forKey:@"inputImage"];
-    [blendFilter setValue:checkerImage forKey:@"inputBackgroundImage"];
+    [blendFilter setValue:backgroundImage forKey:@"inputBackgroundImage"];
 
     image = [blendFilter valueForKey:@"outputImage"];
 
@@ -612,6 +614,67 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     }
 }
 
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{
+    if (menuItem.action == @selector(setBackgroundCheckerboard:)) {
+        menuItem.state = (backgroundType == IGBackgroundTypeCheckerboard)? NSOnState: NSOffState;
+        return YES;
+    }
+    else if (menuItem.action == @selector(setBackgroundBlack:)) {
+        menuItem.state = (backgroundType == IGBackgroundTypeBlack)? NSOnState: NSOffState;
+        return YES;
+    }
+    else if (menuItem.action == @selector(setBackgroundWhite:)) {
+        menuItem.state = (backgroundType == IGBackgroundTypeWhite)? NSOnState: NSOffState;
+        return YES;
+    }
+    return NO;
+}
+
+- (IBAction)setBackgroundCheckerboard:(id)sender
+{
+    backgroundType = IGBackgroundTypeCheckerboard;
+
+    CIFilter *checkerboardFilter = [CIFilter filterWithName:@"CICheckerboardGenerator"];
+    [checkerboardFilter setDefaults];
+    [checkerboardFilter setValue:@8 forKey:@"inputWidth"];
+    [checkerboardFilter setValue:[CIColor colorWithRed:1.0 green:1.0 blue:1.0] forKey:@"inputColor0"];
+    [checkerboardFilter setValue:[CIColor colorWithRed:0.8 green:0.8 blue:0.8] forKey:@"inputColor1"];
+    [checkerboardFilter setValue:[CIVector vectorWithX:0 Y:0] forKey:@"inputCenter"];
+
+    backgroundImage = [checkerboardFilter valueForKey:@"outputImage"];
+    backgroundImage = [self cropImage:backgroundImage];
+
+    [self applyFilters:self];
+}
+
+- (IBAction)setBackgroundBlack:(id)sender
+{
+    backgroundType = IGBackgroundTypeBlack;
+
+    CIFilter *constantColorFilter = [CIFilter filterWithName:@"CIConstantColorGenerator"];
+    [constantColorFilter setDefaults];
+    [constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+
+    backgroundImage = [constantColorFilter valueForKey:@"outputImage"];
+    backgroundImage = [self cropImage:backgroundImage];
+
+    [self applyFilters:self];
+}
+
+- (IBAction)setBackgroundWhite:(id)sender
+{
+    backgroundType = IGBackgroundTypeWhite;
+    CIFilter *constantColorFilter = [CIFilter filterWithName:@"CIConstantColorGenerator"];
+    [constantColorFilter setDefaults];
+    [constantColorFilter setValue:[CIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0] forKey:@"inputColor"];
+
+    backgroundImage = [constantColorFilter valueForKey:@"outputImage"];
+    backgroundImage = [self cropImage:backgroundImage];
+
+    [self applyFilters:self];
+}
+
 - (NSData *)makePNGData
 {
     CIImage *image = ciImage;
@@ -688,6 +751,14 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
     if (!hasSetImageSize) {
         imageSize = NSMakeSize(width, height);
+
+        if (backgroundType == IGBackgroundTypeCheckerboard) {
+            [self setBackgroundCheckerboard:self];
+        } else if (backgroundType == IGBackgroundTypeBlack) {
+            [self setBackgroundBlack:self];
+        } else if (backgroundType == IGBackgroundTypeWhite) {
+            [self setBackgroundWhite:self];
+        }
 
         NSView *documentView = self.mainView;
         NSRect imageRect = NSMakeRect(0, 0, imageSize.width, imageSize.height);
