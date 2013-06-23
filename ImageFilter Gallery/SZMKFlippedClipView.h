@@ -1,5 +1,5 @@
 //
-//  main.m
+//  SZMKFlippedClipView.h
 //  ImageFilter Gallery
 //
 //  Created by numata on 2013/06/22.
@@ -8,7 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
-}
+
+@interface SZMKFlippedClipView : NSClipView
+
++ (void)setupClipView:(NSClipView *)clipView;
+
+@end
+

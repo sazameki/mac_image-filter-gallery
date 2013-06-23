@@ -1,0 +1,13 @@
+kernel vec4 kernel_main(sampler src, float size)
+{
+    vec2 pos = samplerCoord(src);
+    int px = int(pos.x);
+    int py = int(pos.y);
+    int sizei = int(size);
+    px = (px / sizei) * sizei + 1;
+    py = (py / sizei) * sizei + 1;
+    pos.x = float(px);
+    pos.y = float(py);
+    vec4 v = sample(src, pos);
+    return v;
+}

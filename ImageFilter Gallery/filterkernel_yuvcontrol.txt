@@ -1,0 +1,18 @@
+kernel vec4 kernel_main(sampler src, float fixedU, float fixedV)
+{
+    vec4 v = sample(src, samplerCoord(src));
+
+    float Y =  0.299 * v.r + 0.587 * v.g + 0.114 * v.b;
+    float U = -0.169 * v.r - 0.331 * v.g + 0.500 * v.b;
+    float V =  0.500 * v.r - 0.419 * v.g - 0.081 * v.b;
+
+    U = fixedU;
+    V = fixedV;
+
+    v.r = Y + 1.402 * V;
+    v.g = Y - 0.344 * U - 0.714 * V;
+    v.b = Y + 1.772 * U;
+
+    return v;
+}
+

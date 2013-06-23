@@ -1,0 +1,24 @@
+kernel vec4 kernel_main(sampler src, float div_x, float div_y)
+{
+    vec2 pos = samplerCoord(src);
+    vec2 size = samplerSize(src);
+    vec2 spos;
+    spos.x = pos.x * div_x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.x = (spos.x > size.x)? (spos.x-size.x): spos.x;
+    spos.y = pos.y * div_y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    spos.y = (spos.y > size.y)? (spos.y-size.y): spos.y;
+    vec4 v = sample(src, spos);
+    return v;
+}

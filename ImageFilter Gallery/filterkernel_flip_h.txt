@@ -1,0 +1,7 @@
+kernel vec4 kernel_main(sampler src)
+{
+    vec2 pos = samplerCoord(src);
+    vec2 size = samplerSize(src);
+    pos.x = size.x - pos.x;
+    return sample(src, pos);
+}

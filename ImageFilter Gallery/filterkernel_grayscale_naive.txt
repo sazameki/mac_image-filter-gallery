@@ -1,0 +1,9 @@
+kernel vec4 kernel_main(sampler src)
+{
+    vec4 v = sample(src, samplerCoord(src));
+    float b = (v.r + v.g + v.b) / 3.0;
+    v.r = b;
+    v.g = b;
+    v.b = b;
+    return v;
+}

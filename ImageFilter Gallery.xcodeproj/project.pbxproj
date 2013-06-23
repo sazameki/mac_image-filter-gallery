@@ -10,10 +10,40 @@
 		8E2000821775081200C11017 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2000811775081200C11017 /* Cocoa.framework */; };
 		8E20008C1775081200C11017 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E20008A1775081200C11017 /* InfoPlist.strings */; };
 		8E20008E1775081200C11017 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E20008D1775081200C11017 /* main.m */; };
-		8E2000921775081200C11017 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000901775081200C11017 /* Credits.rtf */; };
 		8E2000951775081200C11017 /* IGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000941775081200C11017 /* IGDocument.m */; };
 		8E2000981775081200C11017 /* IGDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000961775081200C11017 /* IGDocument.xib */; };
 		8E20009B1775081200C11017 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000991775081200C11017 /* MainMenu.xib */; };
+		8E2000A217750B2400C11017 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2000A117750B2400C11017 /* QuartzCore.framework */; };
+		8E2000B21775201B00C11017 /* SZMKFlippedClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000B017751D8B00C11017 /* SZMKFlippedClipView.m */; };
+		8E2000B517752E5C00C11017 /* IGFilterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000B417752E5C00C11017 /* IGFilterInfo.m */; };
+		8E2000B71776474200C11017 /* filterkernel_grayscale_naive.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000B61776474200C11017 /* filterkernel_grayscale_naive.txt */; };
+		8E2000BA1776493D00C11017 /* IGNaiveGrayscaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000B91776493D00C11017 /* IGNaiveGrayscaleFilter.m */; };
+		8E2000BD177657B600C11017 /* IGFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000BC177657B600C11017 /* IGFilter.m */; };
+		8E2000C117765C1200C11017 /* IGGrayscaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000C017765C1200C11017 /* IGGrayscaleFilter.m */; };
+		8E2000C517765C9900C11017 /* filterkernel_grayscale.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000C417765C9900C11017 /* filterkernel_grayscale.txt */; };
+		8E2000C817765E8D00C11017 /* IGBinaryFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000C717765E8D00C11017 /* IGBinaryFilter.m */; };
+		8E2000CA17765EC800C11017 /* filterkernel_binary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000C917765EC800C11017 /* filterkernel_binary.txt */; };
+		8E2000CC1776640F00C11017 /* filterkernel_invert.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000CB1776640F00C11017 /* filterkernel_invert.txt */; };
+		8E2000CF1776643E00C11017 /* IGInvertFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000CE1776643D00C11017 /* IGInvertFilter.m */; };
+		8E2000D1177666F300C11017 /* filterkernel_split.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000D0177666F300C11017 /* filterkernel_split.txt */; };
+		8E2000D41776671300C11017 /* IGSplitFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000D31776671300C11017 /* IGSplitFilter.m */; };
+		8E2000D617766CD600C11017 /* filterkernel_mosaic.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000D517766CD600C11017 /* filterkernel_mosaic.txt */; };
+		8E2000D917766CFB00C11017 /* IGMosaicFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000D817766CFB00C11017 /* IGMosaicFilter.m */; };
+		8E2000DC1776726900C11017 /* NSWindow+AccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000DB1776726900C11017 /* NSWindow+AccessoryView.m */; };
+		8E2000DE1776761300C11017 /* filterkernel_huecontrol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000DD1776761300C11017 /* filterkernel_huecontrol.txt */; };
+		8E2000E11776765200C11017 /* IGHueControlFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000E01776765200C11017 /* IGHueControlFilter.m */; };
+		8E2000E317767CC800C11017 /* filterkernel_yuvcontrol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000E217767CC800C11017 /* filterkernel_yuvcontrol.txt */; };
+		8E2000E617767CF500C11017 /* IGYUVControlFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000E517767CF400C11017 /* IGYUVControlFilter.m */; };
+		8E2000E81776817E00C11017 /* filterkernel_flip_h.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000E71776817E00C11017 /* filterkernel_flip_h.txt */; };
+		8E2000EB177681DB00C11017 /* IGFlipHFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000EA177681DA00C11017 /* IGFlipHFilter.m */; };
+		8E2000ED177682AF00C11017 /* filterkernel_flip_v.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E2000EC177682AF00C11017 /* filterkernel_flip_v.txt */; };
+		8E2000F0177682D700C11017 /* IGFlipVFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000EF177682D600C11017 /* IGFlipVFilter.m */; };
+		8E2000F317769D8200C11017 /* NSMutableArray+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000F217769D8100C11017 /* NSMutableArray+Util.m */; };
+		8E2000F91776A45400C11017 /* IGTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000F81776A45400C11017 /* IGTableView.m */; };
+		8E2000FD1776AE6100C11017 /* IGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000FC1776AE6000C11017 /* IGView.m */; };
+		8E2001001776D16700C11017 /* IGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2000FF1776D16600C11017 /* IGAppDelegate.m */; };
+		8EDA9B471776D59200063F05 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDA9B461776D59200063F05 /* AVFoundation.framework */; };
+		8EDA9B491776D77E00063F05 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDA9B481776D77E00063F05 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +56,59 @@
 		8E20008B1775081200C11017 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E20008D1775081200C11017 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E20008F1775081200C11017 /* ImageFilter Gallery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageFilter Gallery-Prefix.pch"; sourceTree = "<group>"; };
-		8E2000911775081200C11017 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8E2000931775081200C11017 /* IGDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGDocument.h; sourceTree = "<group>"; };
 		8E2000941775081200C11017 /* IGDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGDocument.m; sourceTree = "<group>"; };
 		8E2000971775081200C11017 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IGDocument.xib; sourceTree = "<group>"; };
 		8E20009A1775081200C11017 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8E2000A117750B2400C11017 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8E2000B017751D8B00C11017 /* SZMKFlippedClipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZMKFlippedClipView.m; sourceTree = "<group>"; };
+		8E2000B117751D8B00C11017 /* SZMKFlippedClipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZMKFlippedClipView.h; sourceTree = "<group>"; };
+		8E2000B317752E5C00C11017 /* IGFilterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGFilterInfo.h; sourceTree = "<group>"; };
+		8E2000B417752E5C00C11017 /* IGFilterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGFilterInfo.m; sourceTree = "<group>"; };
+		8E2000B61776474200C11017 /* filterkernel_grayscale_naive.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_grayscale_naive.txt; sourceTree = "<group>"; };
+		8E2000B81776493D00C11017 /* IGNaiveGrayscaleFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGNaiveGrayscaleFilter.h; sourceTree = "<group>"; };
+		8E2000B91776493D00C11017 /* IGNaiveGrayscaleFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGNaiveGrayscaleFilter.m; sourceTree = "<group>"; };
+		8E2000BB177657B600C11017 /* IGFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGFilter.h; sourceTree = "<group>"; };
+		8E2000BC177657B600C11017 /* IGFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGFilter.m; sourceTree = "<group>"; };
+		8E2000BF17765C1200C11017 /* IGGrayscaleFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGGrayscaleFilter.h; sourceTree = "<group>"; };
+		8E2000C017765C1200C11017 /* IGGrayscaleFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGGrayscaleFilter.m; sourceTree = "<group>"; };
+		8E2000C417765C9900C11017 /* filterkernel_grayscale.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_grayscale.txt; sourceTree = "<group>"; };
+		8E2000C617765E8D00C11017 /* IGBinaryFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBinaryFilter.h; sourceTree = "<group>"; };
+		8E2000C717765E8D00C11017 /* IGBinaryFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBinaryFilter.m; sourceTree = "<group>"; };
+		8E2000C917765EC800C11017 /* filterkernel_binary.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_binary.txt; sourceTree = "<group>"; };
+		8E2000CB1776640F00C11017 /* filterkernel_invert.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_invert.txt; sourceTree = "<group>"; };
+		8E2000CD1776643D00C11017 /* IGInvertFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInvertFilter.h; sourceTree = "<group>"; };
+		8E2000CE1776643D00C11017 /* IGInvertFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInvertFilter.m; sourceTree = "<group>"; };
+		8E2000D0177666F300C11017 /* filterkernel_split.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_split.txt; sourceTree = "<group>"; };
+		8E2000D21776671300C11017 /* IGSplitFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGSplitFilter.h; sourceTree = "<group>"; };
+		8E2000D31776671300C11017 /* IGSplitFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGSplitFilter.m; sourceTree = "<group>"; };
+		8E2000D517766CD600C11017 /* filterkernel_mosaic.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_mosaic.txt; sourceTree = "<group>"; };
+		8E2000D717766CFB00C11017 /* IGMosaicFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMosaicFilter.h; sourceTree = "<group>"; };
+		8E2000D817766CFB00C11017 /* IGMosaicFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMosaicFilter.m; sourceTree = "<group>"; };
+		8E2000DA1776726800C11017 /* NSWindow+AccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+AccessoryView.h"; sourceTree = "<group>"; };
+		8E2000DB1776726900C11017 /* NSWindow+AccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+AccessoryView.m"; sourceTree = "<group>"; };
+		8E2000DD1776761300C11017 /* filterkernel_huecontrol.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_huecontrol.txt; sourceTree = "<group>"; };
+		8E2000DF1776765200C11017 /* IGHueControlFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGHueControlFilter.h; sourceTree = "<group>"; };
+		8E2000E01776765200C11017 /* IGHueControlFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGHueControlFilter.m; sourceTree = "<group>"; };
+		8E2000E217767CC800C11017 /* filterkernel_yuvcontrol.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_yuvcontrol.txt; sourceTree = "<group>"; };
+		8E2000E417767CF400C11017 /* IGYUVControlFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGYUVControlFilter.h; sourceTree = "<group>"; };
+		8E2000E517767CF400C11017 /* IGYUVControlFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGYUVControlFilter.m; sourceTree = "<group>"; };
+		8E2000E71776817E00C11017 /* filterkernel_flip_h.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_flip_h.txt; sourceTree = "<group>"; };
+		8E2000E9177681DA00C11017 /* IGFlipHFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGFlipHFilter.h; sourceTree = "<group>"; };
+		8E2000EA177681DA00C11017 /* IGFlipHFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGFlipHFilter.m; sourceTree = "<group>"; };
+		8E2000EC177682AF00C11017 /* filterkernel_flip_v.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = filterkernel_flip_v.txt; sourceTree = "<group>"; };
+		8E2000EE177682D500C11017 /* IGFlipVFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGFlipVFilter.h; sourceTree = "<group>"; };
+		8E2000EF177682D600C11017 /* IGFlipVFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGFlipVFilter.m; sourceTree = "<group>"; };
+		8E2000F117769D8000C11017 /* NSMutableArray+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Util.h"; sourceTree = "<group>"; };
+		8E2000F217769D8100C11017 /* NSMutableArray+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Util.m"; sourceTree = "<group>"; };
+		8E2000F71776A45300C11017 /* IGTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTableView.h; sourceTree = "<group>"; };
+		8E2000F81776A45400C11017 /* IGTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTableView.m; sourceTree = "<group>"; };
+		8E2000FB1776AE6000C11017 /* IGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGView.h; sourceTree = "<group>"; };
+		8E2000FC1776AE6000C11017 /* IGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGView.m; sourceTree = "<group>"; };
+		8E2000FE1776D16600C11017 /* IGAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGAppDelegate.h; sourceTree = "<group>"; };
+		8E2000FF1776D16600C11017 /* IGAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGAppDelegate.m; sourceTree = "<group>"; };
+		8EDA9B461776D59200063F05 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8EDA9B481776D77E00063F05 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +116,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDA9B491776D77E00063F05 /* CoreMedia.framework in Frameworks */,
+				8EDA9B471776D59200063F05 /* AVFoundation.framework in Frameworks */,
+				8E2000A217750B2400C11017 /* QuartzCore.framework in Frameworks */,
 				8E2000821775081200C11017 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +146,9 @@
 		8E2000801775081200C11017 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EDA9B481776D77E00063F05 /* CoreMedia.framework */,
+				8EDA9B461776D59200063F05 /* AVFoundation.framework */,
+				8E2000A117750B2400C11017 /* QuartzCore.framework */,
 				8E2000811775081200C11017 /* Cocoa.framework */,
 				8E2000831775081200C11017 /* Other Frameworks */,
 			);
@@ -84,8 +168,18 @@
 		8E2000871775081200C11017 /* ImageFilter Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				8E2000FE1776D16600C11017 /* IGAppDelegate.h */,
+				8E2000FF1776D16600C11017 /* IGAppDelegate.m */,
 				8E2000931775081200C11017 /* IGDocument.h */,
 				8E2000941775081200C11017 /* IGDocument.m */,
+				8E2000FB1776AE6000C11017 /* IGView.h */,
+				8E2000FC1776AE6000C11017 /* IGView.m */,
+				8E2000B317752E5C00C11017 /* IGFilterInfo.h */,
+				8E2000B417752E5C00C11017 /* IGFilterInfo.m */,
+				8E2000F71776A45300C11017 /* IGTableView.h */,
+				8E2000F81776A45400C11017 /* IGTableView.m */,
+				8E2000BE177657BE00C11017 /* Custom Filters */,
+				8E2000FA1776A46200C11017 /* Utils */,
 				8E2000961775081200C11017 /* IGDocument.xib */,
 				8E2000991775081200C11017 /* MainMenu.xib */,
 				8E2000881775081200C11017 /* Supporting Files */,
@@ -100,9 +194,76 @@
 				8E20008A1775081200C11017 /* InfoPlist.strings */,
 				8E20008D1775081200C11017 /* main.m */,
 				8E20008F1775081200C11017 /* ImageFilter Gallery-Prefix.pch */,
-				8E2000901775081200C11017 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E2000BE177657BE00C11017 /* Custom Filters */ = {
+			isa = PBXGroup;
+			children = (
+				8E2000C217765C6F00C11017 /* classes */,
+				8E2000C317765C8100C11017 /* kernel sources */,
+			);
+			name = "Custom Filters";
+			sourceTree = "<group>";
+		};
+		8E2000C217765C6F00C11017 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				8E2000BB177657B600C11017 /* IGFilter.h */,
+				8E2000BC177657B600C11017 /* IGFilter.m */,
+				8E2000B81776493D00C11017 /* IGNaiveGrayscaleFilter.h */,
+				8E2000B91776493D00C11017 /* IGNaiveGrayscaleFilter.m */,
+				8E2000BF17765C1200C11017 /* IGGrayscaleFilter.h */,
+				8E2000C017765C1200C11017 /* IGGrayscaleFilter.m */,
+				8E2000C617765E8D00C11017 /* IGBinaryFilter.h */,
+				8E2000C717765E8D00C11017 /* IGBinaryFilter.m */,
+				8E2000CD1776643D00C11017 /* IGInvertFilter.h */,
+				8E2000CE1776643D00C11017 /* IGInvertFilter.m */,
+				8E2000D21776671300C11017 /* IGSplitFilter.h */,
+				8E2000D31776671300C11017 /* IGSplitFilter.m */,
+				8E2000D717766CFB00C11017 /* IGMosaicFilter.h */,
+				8E2000D817766CFB00C11017 /* IGMosaicFilter.m */,
+				8E2000DF1776765200C11017 /* IGHueControlFilter.h */,
+				8E2000E01776765200C11017 /* IGHueControlFilter.m */,
+				8E2000E417767CF400C11017 /* IGYUVControlFilter.h */,
+				8E2000E517767CF400C11017 /* IGYUVControlFilter.m */,
+				8E2000E9177681DA00C11017 /* IGFlipHFilter.h */,
+				8E2000EA177681DA00C11017 /* IGFlipHFilter.m */,
+				8E2000EE177682D500C11017 /* IGFlipVFilter.h */,
+				8E2000EF177682D600C11017 /* IGFlipVFilter.m */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
+		8E2000C317765C8100C11017 /* kernel sources */ = {
+			isa = PBXGroup;
+			children = (
+				8E2000B61776474200C11017 /* filterkernel_grayscale_naive.txt */,
+				8E2000C417765C9900C11017 /* filterkernel_grayscale.txt */,
+				8E2000C917765EC800C11017 /* filterkernel_binary.txt */,
+				8E2000CB1776640F00C11017 /* filterkernel_invert.txt */,
+				8E2000D0177666F300C11017 /* filterkernel_split.txt */,
+				8E2000D517766CD600C11017 /* filterkernel_mosaic.txt */,
+				8E2000DD1776761300C11017 /* filterkernel_huecontrol.txt */,
+				8E2000E217767CC800C11017 /* filterkernel_yuvcontrol.txt */,
+				8E2000E71776817E00C11017 /* filterkernel_flip_h.txt */,
+				8E2000EC177682AF00C11017 /* filterkernel_flip_v.txt */,
+			);
+			name = "kernel sources";
+			sourceTree = "<group>";
+		};
+		8E2000FA1776A46200C11017 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8E2000F117769D8000C11017 /* NSMutableArray+Util.h */,
+				8E2000F217769D8100C11017 /* NSMutableArray+Util.m */,
+				8E2000B117751D8B00C11017 /* SZMKFlippedClipView.h */,
+				8E2000B017751D8B00C11017 /* SZMKFlippedClipView.m */,
+				8E2000DA1776726800C11017 /* NSWindow+AccessoryView.h */,
+				8E2000DB1776726900C11017 /* NSWindow+AccessoryView.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,9 +319,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E20008C1775081200C11017 /* InfoPlist.strings in Resources */,
-				8E2000921775081200C11017 /* Credits.rtf in Resources */,
 				8E2000981775081200C11017 /* IGDocument.xib in Resources */,
 				8E20009B1775081200C11017 /* MainMenu.xib in Resources */,
+				8E2000B71776474200C11017 /* filterkernel_grayscale_naive.txt in Resources */,
+				8E2000C517765C9900C11017 /* filterkernel_grayscale.txt in Resources */,
+				8E2000CA17765EC800C11017 /* filterkernel_binary.txt in Resources */,
+				8E2000CC1776640F00C11017 /* filterkernel_invert.txt in Resources */,
+				8E2000D1177666F300C11017 /* filterkernel_split.txt in Resources */,
+				8E2000D617766CD600C11017 /* filterkernel_mosaic.txt in Resources */,
+				8E2000DE1776761300C11017 /* filterkernel_huecontrol.txt in Resources */,
+				8E2000E317767CC800C11017 /* filterkernel_yuvcontrol.txt in Resources */,
+				8E2000E81776817E00C11017 /* filterkernel_flip_h.txt in Resources */,
+				8E2000ED177682AF00C11017 /* filterkernel_flip_v.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +343,24 @@
 			files = (
 				8E20008E1775081200C11017 /* main.m in Sources */,
 				8E2000951775081200C11017 /* IGDocument.m in Sources */,
+				8E2000B21775201B00C11017 /* SZMKFlippedClipView.m in Sources */,
+				8E2000B517752E5C00C11017 /* IGFilterInfo.m in Sources */,
+				8E2000BA1776493D00C11017 /* IGNaiveGrayscaleFilter.m in Sources */,
+				8E2000BD177657B600C11017 /* IGFilter.m in Sources */,
+				8E2000C117765C1200C11017 /* IGGrayscaleFilter.m in Sources */,
+				8E2000C817765E8D00C11017 /* IGBinaryFilter.m in Sources */,
+				8E2000CF1776643E00C11017 /* IGInvertFilter.m in Sources */,
+				8E2000D41776671300C11017 /* IGSplitFilter.m in Sources */,
+				8E2000D917766CFB00C11017 /* IGMosaicFilter.m in Sources */,
+				8E2000DC1776726900C11017 /* NSWindow+AccessoryView.m in Sources */,
+				8E2000E11776765200C11017 /* IGHueControlFilter.m in Sources */,
+				8E2000E617767CF500C11017 /* IGYUVControlFilter.m in Sources */,
+				8E2000EB177681DB00C11017 /* IGFlipHFilter.m in Sources */,
+				8E2000F0177682D700C11017 /* IGFlipVFilter.m in Sources */,
+				8E2000F317769D8200C11017 /* NSMutableArray+Util.m in Sources */,
+				8E2000F91776A45400C11017 /* IGTableView.m in Sources */,
+				8E2000FD1776AE6100C11017 /* IGView.m in Sources */,
+				8E2001001776D16700C11017 /* IGAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,14 +373,6 @@
 				8E20008B1775081200C11017 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8E2000901775081200C11017 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E2000911775081200C11017 /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		8E2000961775081200C11017 /* IGDocument.xib */ = {
@@ -316,6 +496,7 @@
 				8E2000A01775081200C11017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
