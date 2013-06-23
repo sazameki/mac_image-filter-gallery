@@ -192,7 +192,7 @@ NSArray *filterInfos;
            @"filter2":@"", @"name2":@"_inputCenterX", @"param-display2":@"中心X",
            @"min2":@0.0f, @"max2":@2000.0f, @"default2":@50.0f,
            @"filter3":@"", @"name3":@"_inputCenterY", @"param-display3":@"中心Y",
-           @"min3":@0.0f, @"max3":@2000.0f, @"default3":@50.0f,
+           @"min3":@-1000.0f, @"max3":@2000.0f, @"default3":@50.0f,
            @"filter4":@"", @"name4":@"inputAngle", @"param-display4":@"角度",
            @"min4":@(-M_PI), @"max4":@(M_PI), @"default4":@0.0f,
            },
