@@ -190,7 +190,9 @@ typedef enum {
 
     CALayer *layer = documentView.layer;
     layer.frame = CGRectMake(0, 0, scaledImageSize.width, scaledImageSize.height);
-    layer.backgroundColor = [NSColor whiteColor].CGColor;
+    CGColorRef bgColor = CGColorCreateGenericRGB(1.0f, 1.0f, 1.0f, 1.0f);
+    layer.backgroundColor = bgColor;
+    CGColorRelease(bgColor);
     layer.contentsGravity = kCAGravityBottomLeft;
 
     self.filtersPanel.level = NSFloatingWindowLevel;
